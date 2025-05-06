@@ -15,6 +15,13 @@
       "when": 1746453672655,
       "tag": "0001_nifty_onslaught",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1746508794948,
+      "tag": "0002_yummy_zuras",
+      "breakpoints": true
     }
   ]
 }

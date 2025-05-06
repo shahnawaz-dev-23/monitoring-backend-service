@@ -12,7 +12,6 @@ export const urls = pgTable('urls', {
   userId: integer('user_id').references(() => users.id).notNull(),
   url: text('url').notNull(),
   name: text('name').notNull(),
-  checkInterval: integer('check_interval').notNull().default(300), // in seconds
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });

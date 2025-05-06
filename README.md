@@ -96,18 +96,18 @@ npm run db:push
 ### URL Management
 
 - `POST /api/urls` - Add a new URL to monitor
-  - Body: `{ "url": "https://example.com", "name": "Example Site", "checkInterval": 300 }`
+  - Body: `{ "url": "https://example.com", "name": "Example Site" }`
   - Headers: `Authorization: Bearer <token>`
 
 - `GET /api/urls` - Get all monitored URLs for the authenticated user
   - Headers: `Authorization: Bearer <token>`
 
 - `PUT /api/urls/:id` - Update a monitored URL
-  - Body: `{ "url": "https://example.com", "name": "Updated Name", "checkInterval": 600 }`
+  - Body: `{ "url": "https://example.com", "name": "Updated Name" }`
   - Headers: `Authorization: Bearer <token>`
 
 - `PATCH /api/urls/:id` - Partially update a monitored URL
-  - Body: `{ "name": "Updated Name" }` or `{ "checkInterval": 600 }` or any combination of fields
+  - Body: `{ "name": "Updated Name" }` or `{ "url": "https://example.com" }` or any combination of fields
   - Headers: `Authorization: Bearer <token>`
 
 - `DELETE /api/urls/:id` - Delete a monitored URL

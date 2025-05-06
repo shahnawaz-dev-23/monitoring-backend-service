@@ -39,7 +39,6 @@ const loginSchema = z.object({
 const urlSchema = z.object({
   url: z.string().url(),
   name: z.string(),
-  checkInterval: z.number().min(60).default(300),
 });
 
 // Auth routes
@@ -87,14 +86,13 @@ app.post('/auth/login', async (c) => {
 app.post('/api/urls', async (c) => {
   const userId = c.get('userId');
   const body = await c.req.json();
-  const { url, name, checkInterval } = urlSchema.parse(body);
+  const { url, name } = urlSchema.parse(body);
   const db = createDb(c.env);
 
   const [newUrl] = await db.insert(urls).values({
     userId,
     url,
     name,
-    checkInterval,
   }).returning();
 
   return c.json(newUrl);
@@ -114,11 +112,11 @@ app.put('/api/urls/:id', async (c) => {
   const userId = c.get('userId');
   const urlId = parseInt(c.req.param('id'));
   const body = await c.req.json();
-  const { url, name, checkInterval } = urlSchema.parse(body);
+  const { url, name } = urlSchema.parse(body);
   const db = createDb(c.env);
 
   const [updatedUrl] = await db.update(urls)
-    .set({ url, name, checkInterval, updatedAt: new Date() })
+    .set({ url, name, updatedAt: new Date() })
     .where(and(eq(urls.id, urlId), eq(urls.userId, userId)))
     .returning();
 
