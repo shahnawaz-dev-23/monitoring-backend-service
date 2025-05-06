@@ -20,12 +20,18 @@ A serverless URL monitoring service built with Cloudflare Workers, TypeScript, H
 
 ## Setup
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/shahnawaz-dev-23/monitoring-backend-service.git
+cd url-monitoring-service
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Configure environment variables in Cloudflare Dashboard:
+3. Configure environment variables in Cloudflare Dashboard:
    - Go to https://dash.cloudflare.com
    - Navigate to Workers & Pages
    - Find your worker "url-monitor-service"
@@ -36,18 +42,25 @@ npm install
      JWT_SECRET=your_jwt_secret
      ```
 
-3. Set up the database:
+4. Set up the database:
 ```bash
 npm run db:generate
 npm run db:push
 ```
 
-4. Deploy to Cloudflare Workers:
+5. Deploy to Cloudflare Workers:
 ```bash
 npm run deploy
 ```
 
-Your application will be available at: https://url-monitor-service.bizgurukul-shahnawaz.workers.dev
+Your application will be available at: https://url-monitor-service.your-subdomain.workers.dev
+
+## API Access
+
+You can access all the APIs of this application at:
+```
+https://url-monitor-service.bizgurukul-shahnawaz.workers.dev
+```
 
 ## Development
 
