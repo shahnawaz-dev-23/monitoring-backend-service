@@ -1,0 +1,33 @@
+name = "url-monitor-service"
+main = "src/index.ts"
+compatibility_date = "2024-03-12"
+compatibility_flags = ["nodejs_compat"]
+
+workers_dev = true
+
+[vars]
+# Replace with your actual JWT secret
+JWT_SECRET = "your-jwt-secret-here"
+# Replace with your actual database URL
+DATABASE_URL = "postgresql://username:password@host:port/database?sslmode=require"
+
+[triggers]
+crons = ["*/5 * * * *"]  # Run every 5 minutes
+
+[dev]
+port = 8787
+
+[env.production]
+name = "url-monitor-service"
+main = "src/index.ts"
+compatibility_date = "2024-03-12"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production.vars]
+# Replace with your actual JWT secret
+JWT_SECRET = "your-jwt-secret-here"
+# Replace with your actual database URL
+DATABASE_URL = "postgresql://username:password@host:port/database?sslmode=require"
+
+[env.production.triggers]
+crons = ["*/5 * * * *"]  # Run every 5 minutes 
